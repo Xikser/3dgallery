@@ -10,10 +10,10 @@ html {
 }
 
 body {
-  overflow-x: hidden;
+  overflow: hidden;
   color: #fff;
   font-family: 'Rubik', sans-serif;
-  background-color: #d3dadd;
+  background: #d3dddd;
   width: 100%;
 }
 
@@ -55,5 +55,64 @@ a {
 
 ol, ul, li {
   list-style: none;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.container .scene {
+  position: relative;
+}
+
+.container .scene::before {
+  position: fixed;
+  width: 50%;
+  height: 110%;
+  content: '';
+  bottom: -20%;
+  left: 0;
+  margin-left: 25%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.9) 100%);
+  transform: perspective(500px) rotateX(70deg) translateY(-5%);
+  z-index: -5;
+  transform-style: preserve-3d;
+  transition: all .5s ease;
+}
+
+.container .gallery-container {
+  position: absolute;
+  width: 60%;
+  height: 100vh;
+  top: 100%;
+  left: 50%;
+  overflow: hidden;
+  transform: translateX(-50%);
+}
+
+.container .slider {
+  position: absolute;
+  width: 50%;
+  bottom: 25%;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-50%);
+}
+
+.container .slider .image-box {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+}
+
+.container .slider .image-box img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
 /*# sourceMappingURL=style.css.map */
