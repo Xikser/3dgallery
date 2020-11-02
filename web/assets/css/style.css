@@ -95,6 +95,9 @@ ol, ul, li {
   padding: 0;
   top: 100%;
   left: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
   overflow: hidden;
   transform: translateX(-50%);
   perspective: 600px;
@@ -140,22 +143,25 @@ ol, ul, li {
   z-index: -17;
 }
 
+.container .current-slider {
+  opacity: 1 !important;
+}
+
 .container .slider {
   position: absolute;
-  width: 50%;
+  width: 60%;
   bottom: 22%;
-  left: 0;
-  margin-left: 25%;
+  margin-left: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
   opacity: 1;
   transform: none;
   transition: transform 1s ease, opacity 1.2s ease, visibility 1s ease;
   transform-style: preserve-3d;
   visibility: visible;
   perspective: 500px;
+  opacity: 0;
 }
 
 .container .slider--after-0 {
@@ -174,13 +180,34 @@ ol, ul, li {
   opacity: 0;
 }
 
-.container .slider--right {
-  left: 18%;
+.container .slider--right .image-box {
+  margin-left: 65% !important;
 }
 
-.container .slider--left {
-  left: 120px !important;
-  margin-left: 0 !important;
+.container .slider--left .image-box {
+  margin-right: 65% !important;
+}
+
+.container .slider::before {
+  position: absolute;
+  content: '';
+  width: 50%;
+  height: 2px;
+  background: red;
+  bottom: -45px;
+  left: -55px;
+  z-index: -1;
+}
+
+.container .slider::after {
+  position: absolute;
+  content: '';
+  width: 50%;
+  height: 2px;
+  background: red;
+  bottom: -45px;
+  right: -55px;
+  z-index: -1;
 }
 
 .container .slider .image-box {
@@ -188,6 +215,7 @@ ol, ul, li {
   width: 350px;
   height: 350px;
   border-radius: 50%;
+  margin: 0 auto;
 }
 
 .container .slider .image-box img {
@@ -201,10 +229,16 @@ ol, ul, li {
   width: 60px;
   height: 60px;
   background: gray;
+  margin: 0 auto;
   bottom: -70px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.container .slider .circle span {
+  cursor: default;
+  touch-action: none;
 }
 /*# sourceMappingURL=style.css.map */
