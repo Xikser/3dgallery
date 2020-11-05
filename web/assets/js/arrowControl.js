@@ -80,8 +80,8 @@ const changeSliderVisible = (e, previous, current, index) => {
 
             setTimeout(() => {
                 current.style.opacity = '.9'
-                nextSlider.style.opacity = '.3'
-                thirdSlider.style.opacity = '.1'
+                nextSlider.style.opacity = '.5'
+                thirdSlider.style.opacity = '.3'
             }, 0)
 
             clearSliderStyle(previous)
@@ -91,7 +91,7 @@ const changeSliderVisible = (e, previous, current, index) => {
 
             setTimeout(() => {
                 current.style.opacity = '.9'
-                nextSlider.style.opacity = '.3'
+                nextSlider.style.opacity = '.5'
                 clearSliderStyle(previous)
             }, 0)
         }
@@ -108,6 +108,7 @@ const changeSliderVisible = (e, previous, current, index) => {
             setTimeout(() => {
                 nextSlider.style.opacity = '.9'
                 previous.style.opacity = ''
+                previous.style.visibility = ''
             }, 0)
             
         } else if (index < 7) {
@@ -116,8 +117,9 @@ const changeSliderVisible = (e, previous, current, index) => {
 
             setTimeout(() => {
                 nextSlider.style.opacity = '.9'
-                previous.style.opacity = '.3'
-                thirdSlider.style.opacity = ''        
+                previous.style.opacity = '.5'
+                thirdSlider.style.opacity = ''   
+                thirdSlider.style.visibility = ''     
             }, 0)
         }
 
@@ -127,6 +129,7 @@ const changeSliderVisible = (e, previous, current, index) => {
 
             setTimeout(() => {
                 x.style.opacity = ''
+                x.style.visibility = ''
             }, 0)
         }
     }
