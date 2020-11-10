@@ -89,6 +89,7 @@
         flex-direction: column
         justify-content: center
         align-items: center
+        transition: all .3s ease
 
     .image-box
         position: relative
@@ -96,7 +97,11 @@
         height: 380px
         padding: 5px
         top: 50px
+        z-index: 2
         border-radius: 50%
+        display: flex
+        justify-content: center
+        align-items: center
         transition: all .3s ease
 
         &::before
@@ -114,6 +119,8 @@
         img
             width: 100%
             height: 100%
+            top: 0
+            left: 0
             border-radius: 50%
             transition: all .3s ease
             cursor: pointer
@@ -128,7 +135,30 @@
             top: -2.5%
             left: -2.5%
 
-    &:hover .image-box img
+    .content-box
+        position: absolute
+        width: 350px
+        height: 90%
+        margin-left: 20px
+        padding: 25px 30px
+        display: flex
+        flex-direction: column
+        justify-content: space-evenly
+        visibility: hidden
+        opacity: 0
+        z-index: -1
+        transition: all .3s ease-out
+        perspective: 500px
+        background: rgba(0, 0, 0, .6)
+
+        h1
+            cursor: default
+            // transition: all .3s ease-out
+            font-size: clamp(1rem, 1.3rem, 2.2rem)
+
+        p
+            cursor: default
+            // transition: all .3s ease-out
 
     .circle
         position: relative
@@ -142,6 +172,7 @@
         align-items: center
         transition: all .3s ease
         cursor: pointer
+        perspective: 500px
 
         &::before
             position: absolute
@@ -201,11 +232,15 @@
         justify-content: space-evenly
         transition: all .3s ease
 
+        &--visible
+            visibility: visible !important
+            opacity: 1 !important
+
         &-content
             position: relative
-            width: 300px
+            min-width: 300px
             height: 50px
-            bottom: -40px
+            bottom: 0
             visibility: hidden
             opacity: 0
             z-index: -10
@@ -223,8 +258,8 @@
             background: #8a2be2
             transition: all .5s ease
             z-index: -50
-            top: 0
             left: 50%
+            bottom: 5px
             transform: translateX(-50%)
 
             &::before
@@ -270,3 +305,18 @@
 @for $i from 1 through 3
     .socialmedia-box:nth-child(#{$i}n)
         transition-delay: #{$i * .3}s
+
+.--clicked
+    width: 100% !important
+    height: 100% !important
+    padding: 50px 0 !important
+
+    &::before
+        display: none !important
+
+    &-style
+        border-radius: 8px !important
+        box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2)
+
+.--image-clicked
+    width: 70% !important
