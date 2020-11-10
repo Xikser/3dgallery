@@ -20,19 +20,19 @@ body {
 }
 
 h1 {
-  fon-size: 5rem;
+  font-size: 5rem;
 }
 
 h2 {
-  fon-size: 3rem;
+  font-size: 3rem;
 }
 
 h3 {
-  fon-size: 2rem;
+  font-size: 2rem;
 }
 
 h4 {
-  fon-size: 1.75rem;
+  font-size: 1.75rem;
 }
 
 @media screen and (max-width: 736px) {
@@ -200,6 +200,7 @@ ol, ul, li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: all .3s ease;
 }
 
 .container .slider .image-box {
@@ -208,7 +209,11 @@ ol, ul, li {
   height: 380px;
   padding: 5px;
   top: 50px;
+  z-index: 2;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: all .3s ease;
 }
 
@@ -228,6 +233,8 @@ ol, ul, li {
 .container .slider .image-box img {
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
   border-radius: 50%;
   transition: all .3s ease;
   cursor: pointer;
@@ -245,6 +252,32 @@ ol, ul, li {
   left: -2.5%;
 }
 
+.container .slider .content-box {
+  position: absolute;
+  width: 350px;
+  height: 90%;
+  margin-left: 20px;
+  padding: 25px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+  transition: all .3s ease-out;
+  perspective: 500px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.container .slider .content-box h1 {
+  cursor: default;
+  font-size: clamp(1rem, 1.3rem, 2.2rem);
+}
+
+.container .slider .content-box p {
+  cursor: default;
+}
+
 .container .slider .circle {
   position: relative;
   width: 60px;
@@ -257,6 +290,7 @@ ol, ul, li {
   align-items: center;
   transition: all .3s ease;
   cursor: pointer;
+  perspective: 500px;
 }
 
 .container .slider .circle::before {
@@ -326,11 +360,16 @@ ol, ul, li {
   transition: all .3s ease;
 }
 
+.container .slider .socialmedia--visible {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
 .container .slider .socialmedia-content {
   position: relative;
-  width: 300px;
+  min-width: 300px;
   height: 50px;
-  bottom: -40px;
+  bottom: 0;
   visibility: hidden;
   opacity: 0;
   z-index: -10;
@@ -350,8 +389,8 @@ ol, ul, li {
   background: #8a2be2;
   transition: all .5s ease;
   z-index: -50;
-  top: 0;
   left: 50%;
+  bottom: 5px;
   transform: translateX(-50%);
 }
 
@@ -400,5 +439,24 @@ ol, ul, li {
 
 .container .socialmedia-box:nth-child(3n) {
   transition-delay: 0.9s;
+}
+
+.container .--clicked {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 50px 0 !important;
+}
+
+.container .--clicked::before {
+  display: none !important;
+}
+
+.container .--clicked-style {
+  border-radius: 8px !important;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
+}
+
+.container .--image-clicked {
+  width: 70% !important;
 }
 /*# sourceMappingURL=style.css.map */
