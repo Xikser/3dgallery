@@ -5,12 +5,17 @@ const sliderClass = 'transform-slider'
 const hideSlider = 'hide-slider'
 
 window.addEventListener('keydown', (e) => {
-    const currentSlider = document.querySelector('.current-slider')
+    const currentSlider = getCurrentSlider()
     const nextSlider = getNextSlider(currentSlider)
     const previousSlider = getPreviousSlider(currentSlider)
     
     changeCurrentSlider(e, currentSlider, nextSlider, previousSlider)
 })
+
+function getCurrentSlider() {
+    const current = document.querySelector('.current-slider')
+    return current
+}
 
 const changeCurrentSlider = (e, current, next, previous) => {
     const sliderIndex = getSliderIndex(current)
