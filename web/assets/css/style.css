@@ -459,4 +459,108 @@ ol, ul, li {
 .container .--image-clicked {
   width: 70% !important;
 }
+
+.control-map {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  top: 100%;
+  left: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  transform: translate(-50%, -70%);
+}
+
+.control-map .arrow, .control-map .square {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  color: #b4b4b4;
+  background: transparent;
+  cursor: pointer;
+}
+
+.control-map .arrow--clicked::before, .control-map .arrow--clicked::after, .control-map .square--clicked::before, .control-map .square--clicked::after {
+  background: #9d34ff !important;
+}
+
+.control-map .arrow--up, .control-map .square--up {
+  top: 0;
+}
+
+.control-map .arrow--up::before, .control-map .arrow--up::after, .control-map .square--up::before, .control-map .square--up::after {
+  position: absolute;
+  content: '';
+  background: white;
+  width: 50%;
+  height: 1px;
+}
+
+.control-map .arrow--up::before, .control-map .square--up::before {
+  top: 48%;
+  left: 10%;
+  transform: rotateZ(-45deg);
+}
+
+.control-map .arrow--up::after, .control-map .square--up::after {
+  top: 48%;
+  right: 6%;
+  transform: rotateZ(45deg);
+}
+
+.control-map .arrow--up:hover .tooltip, .control-map .square--up:hover .tooltip {
+  visibility: visible;
+  left: -170%;
+  top: 5px;
+}
+
+.control-map .arrow--down, .control-map .square--down {
+  bottom: 0;
+}
+
+.control-map .arrow--down::before, .control-map .arrow--down::after, .control-map .square--down::before, .control-map .square--down::after {
+  position: absolute;
+  content: '';
+  background: white;
+  width: 50%;
+  height: 1px;
+}
+
+.control-map .arrow--down::before, .control-map .square--down::before {
+  top: 50%;
+  left: 10%;
+  transform: rotateZ(45deg);
+}
+
+.control-map .arrow--down::after, .control-map .square--down::after {
+  top: 50%;
+  right: 6%;
+  transform: rotateZ(-45deg);
+}
+
+.control-map .arrow--down:hover .tooltip, .control-map .square--down:hover .tooltip {
+  visibility: visible;
+  left: 130%;
+  top: 5px;
+}
+
+.control-map .arrow--left, .control-map .square--left {
+  left: 20px;
+  opacity: .5;
+}
+
+.control-map .arrow--right, .control-map .square--right {
+  right: 20px;
+  opacity: .5;
+}
+
+.tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  font-style: italic;
+}
 /*# sourceMappingURL=style.css.map */
