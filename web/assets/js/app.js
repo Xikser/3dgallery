@@ -4,35 +4,69 @@ const sliderArray = Array.from(document.querySelectorAll('.slider'));
 const sliderClass = 'transform-slider'
 const hideSlider = 'hide-slider'
 
+//arrows
+const arrowUp = document.querySelector('.arrow--up')
+const arrowDown = document.querySelector('.arrow--down')
+
 window.addEventListener('keydown', (e) => {
-    const currentSlider = getCurrentSlider()
-    const nextSlider = getNextSlider(currentSlider)
-    const previousSlider = getPreviousSlider(currentSlider)
-    
-    changeCurrentSlider(e, currentSlider, nextSlider, previousSlider)
+    changeCurrentSlider(e)
 })
+
+document.querySelectorAll('.arrow').forEach(arrow => arrow.addEventListener('click', () => {
+    changeCurrentSlider(arrow)
+}))
 
 function getCurrentSlider() {
     const current = document.querySelector('.current-slider')
     return current
 }
 
-const changeCurrentSlider = (e, current, next, previous) => {
-    const sliderIndex = getSliderIndex(current)
+const changeCurrentSlider = (e) => {
     //current = slider-0
+    const current = getCurrentSlider()
+    const next = getNextSlider(current)
+    const previous = getPreviousSlider(current)
+    const index = getSliderIndex(current)
+    const eventType = event.type
 
-    if(e.key === 'ArrowUp' && sliderIndex < sliderArray.length - 1) {
-        current.classList.remove('current-slider')
-        next.classList.add('current-slider')
-        transformForwardSlider(current, next)
-        changeSliderVisible(e, current, next, sliderIndex)
+    if (eventType === 'keydown') {
+        if (e.key === 'ArrowUp' && index < sliderArray.length - 1) {
+            current.classList.remove('current-slider')
+            next.classList.add('current-slider')
+
+            transformForwardSlider(current, next)
+            changeSliderVisibility(e, current, next, index)
+            clickArrowAnimation(arrowUp)
+        }
+
+        if (e.key === 'ArrowDown' && index > 0) {
+            current.classList.remove('current-slider')
+            previous.classList.add('current-slider')
+
+            transformBackwardSlider(current, previous)
+            changeSliderVisibility(e, current, next, index)
+            clickArrowAnimation(arrowDown)
+        }
     }
-    
-    if(e.key === 'ArrowDown' && sliderIndex > 0 ) {
-        current.classList.remove('current-slider')
-        previous.classList.add('current-slider')
-        transformBackwardSlider(current, previous)
-        changeSliderVisible(e, current, next, sliderIndex)
+    //on click event
+    else if (eventType === 'click') {
+        if (e.classList.contains('arrow--up') && index < sliderArray.length - 1) {
+            current.classList.remove('current-slider')
+            next.classList.add('current-slider')
+
+            transformForwardSlider(current, next)
+            changeSliderVisibility(e, current, next, index)
+            clickArrowAnimation(arrowUp)
+        }
+
+        if (e.classList.contains('arrow--down') && index > 0) {
+            current.classList.remove('current-slider')
+            previous.classList.add('current-slider')
+
+            transformBackwardSlider(current, previous)
+            changeSliderVisibility(e, current, next, index)
+            clickArrowAnimation(arrowDown)
+        }
     }
 }
 
@@ -53,8 +87,8 @@ const setNextSlider = (slider) => {
 const getSliderIndex = (current) => {
     var index = 0
 
-    for(const slider of sliderArray) {
-        if(slider === current) {
+    for (const slider of sliderArray) {
+        if (slider === current) {
             return index
         }
         index++
@@ -74,12 +108,12 @@ const transformBackwardSlider = (current, previous) => {
     previous.classList.remove(hideSlider)
 }
 
-const changeSliderVisible = (e, previous, current, index) => {
+const changeSliderVisibility = (e, previous, current, index) => {
     //current -> previous
     //next -> current
 
-    if(e.key === 'ArrowUp') {
-        if(index >= 0 && index < 5) {
+    if (e.key === 'ArrowUp' || e.classList.contains('arrow--up')) {
+        if (index >= 0 && index < 5) {
             const nextSlider = current.nextElementSibling
             const thirdSlider = nextSlider.nextElementSibling
 
@@ -90,7 +124,7 @@ const changeSliderVisible = (e, previous, current, index) => {
             }, 0)
 
             clearSliderStyle(previous)
-            
+
         } else if (index == 5) {
             const nextSlider = current.nextElementSibling
 
@@ -100,22 +134,22 @@ const changeSliderVisible = (e, previous, current, index) => {
                 clearSliderStyle(previous)
             }, 0)
         }
-        
+
         if (index == 6) {
             current.style.opacity = '.9'
             clearSliderStyle(previous)
         }
     }
-    
-    if(e.key === 'ArrowDown') {
-        if(index == 7) {
+
+    if (e.key === 'ArrowDown' || e.classList.contains('arrow--down')) {
+        if (index == 7) {
             const nextSlider = previous.previousElementSibling
             setTimeout(() => {
                 nextSlider.style.opacity = '.9'
                 previous.style.opacity = ''
                 previous.style.visibility = ''
             }, 0)
-            
+
         } else if (index < 7) {
             const nextSlider = previous.previousElementSibling
             const thirdSlider = previous.nextElementSibling
@@ -123,12 +157,12 @@ const changeSliderVisible = (e, previous, current, index) => {
             setTimeout(() => {
                 nextSlider.style.opacity = '.9'
                 previous.style.opacity = '.5'
-                thirdSlider.style.opacity = ''   
-                thirdSlider.style.visibility = ''     
+                thirdSlider.style.opacity = ''
+                thirdSlider.style.visibility = ''
             }, 0)
         }
 
-        if(index < 6) {
+        if (index < 6) {
             const thirdSlider = previous.nextElementSibling
             const x = thirdSlider.nextElementSibling
 
@@ -147,4 +181,12 @@ const clearSliderStyle = (slider) => {
         slider.style.opacity = ''
         slider.style.visibility = ''
     }, TIME)
+}
+
+const clickArrowAnimation = (arrow) => {
+    arrow.classList.add('arrow--clicked')
+
+    setTimeout(() => {
+        arrow.classList.remove('arrow--clicked')
+    }, 200)
 }
