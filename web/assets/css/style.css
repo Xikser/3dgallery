@@ -512,7 +512,7 @@ ol, ul, li {
 
 .control-map .arrow--up:hover .tooltip, .control-map .square--up:hover .tooltip {
   visibility: visible;
-  left: -170%;
+  left: 130%;
   top: 5px;
 }
 
@@ -542,7 +542,7 @@ ol, ul, li {
 
 .control-map .arrow--down:hover .tooltip, .control-map .square--down:hover .tooltip {
   visibility: visible;
-  left: 130%;
+  left: -230%;
   top: 5px;
 }
 
