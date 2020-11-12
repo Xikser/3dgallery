@@ -1,0 +1,94 @@
+$arrow-size: 30px
+
+.control-map
+    position: relative
+    width: 100px
+    height: 100px
+    top: 100%
+    left: 50%
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-evenly
+    transform: translate(-50%, -70%)
+
+    .arrow, .square
+        position: relative
+        width: $arrow-size
+        height: $arrow-size
+        color: #b4b4b4
+        background: transparent
+        cursor: pointer
+
+        &--clicked
+
+            &::before, &::after
+                background: #9d34ff !important
+
+        &--up
+            top: 0
+
+            &::before, &::after
+                position: absolute
+                content: ''
+                background: white
+                width: 50%
+                height: 1px
+
+            &::before
+                top: 48%
+                left: 10%
+                transform: rotateZ(-45deg)
+
+            &::after
+                top: 48%
+                right: 6%
+                transform: rotateZ(45deg)
+
+            &:hover .tooltip
+                visibility: visible
+                left: -170%
+                top: 5px
+
+        &--down
+            bottom: 0
+
+            &::before, &::after
+                position: absolute
+                content: ''
+                background: white
+                width: 50%
+                height: 1px
+
+            &::before
+                top: 50%
+                left: 10%
+                transform: rotateZ(45deg)
+
+            &::after
+                top: 50%
+                right: 6%
+                transform: rotateZ(-45deg)
+
+            &:hover
+                // color: #61219c
+
+            &:hover .tooltip
+                visibility: visible
+                left: 130%
+                top: 5px
+
+        &--left
+            left: 20px
+            opacity: .5
+
+        &--right
+            right: 20px
+            opacity: .5
+
+.tooltip
+    position: absolute
+    top: 0
+    left: 0
+    visibility: hidden
+    font-style: italic
