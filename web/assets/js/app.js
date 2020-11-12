@@ -94,6 +94,9 @@ const transformForwardSlider = (slider, nextSlider) => {
     slider.classList.add(hideSlider)
     slider.style.visibility = 'hidden'
     nextSlider.classList.remove(sliderClass)
+
+    disableImagePreview(slider)
+    disableCirclePreview(slider)
 }
 
 const transformBackwardSlider = (current, previous) => {
@@ -168,6 +171,24 @@ const changeSliderVisibility = (e, event, previous, current, index) => {
     }
 }
 
+const disableImagePreview = (slider) => {
+    const imageBox = slider.querySelector(':scope .image-box')
+    const image = imageBox.querySelector('img')
+    const content = imageBox.querySelector('.content-box')
+
+    if (imageBox.classList.contains('--clicked')) {
+        setImageStyle(image, imageBox)
+        resetContentStyle(content)
+    }
+}
+
+const disableCirclePreview = (slider) => {
+    const socialMediaContent = slider.querySelector(':scope .socialmedia-content')
+    const socialMediaBox = socialMediaContent.querySelectorAll(':scope .socialmedia-box')
+
+    setSocialMediaContentStyle(slider, socialMediaContent, socialMediaBox)
+}
+
 const clearSliderStyle = (slider) => {
     const TIME = 1200
 
@@ -176,7 +197,6 @@ const clearSliderStyle = (slider) => {
         slider.style.visibility = ''
     }, TIME)
 }
-
 
 //arrow animation
 const clickArrowAnimation = (arrow) => {
