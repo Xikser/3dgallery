@@ -23,13 +23,19 @@ for (const slider of sliderArray) {
 //circles animation
 
 const setSocialMediaContentStyle = (slider, socialMediaContent, socialMediaBox) => {
+    var circleIsVisible = false
+
     if (!socialMediaContent.classList.contains('socialmedia--visible')) {
         socialMediaContent.classList.add('socialmedia--visible')
+        circleIsVisible = true
+        moveControlMap(circleIsVisible)
         showBoxes(slider, socialMediaBox)
     } else {
         hideBoxes(socialMediaBox)
 
         setTimeout(() => {
+            circleIsVisible = false
+            moveControlMap(circleIsVisible)
             socialMediaContent.classList.remove('socialmedia--visible')
         }, 1500)
     }
@@ -74,7 +80,20 @@ const hideBoxes = (box) => {
 
 // end circles animation //
 
+//move control map //
 
+const moveControlMap = (status) => {
+    const currentSlider = getCurrentSlider()
+    const controlMap = document.querySelector('.control-map')
+
+    if (status == true && (currentSlider.classList.contains('slider--after-0') || currentSlider.classList.contains('slider--after-7'))) {
+        controlMap.style.left = "65%"
+    } else {
+        controlMap.style.left = ''
+    }
+}
+
+//end control map section //
 
 //content box section //
 
