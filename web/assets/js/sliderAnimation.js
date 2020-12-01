@@ -34,8 +34,11 @@ const setSocialMediaContentStyle = (slider, socialMediaContent, socialMediaBox) 
         hideBoxes(socialMediaBox)
 
         setTimeout(() => {
-            circleIsVisible = false
             moveControlMap(circleIsVisible)
+        }, 500)
+
+        setTimeout(() => {
+            circleIsVisible = false
             socialMediaContent.classList.remove('socialmedia--visible')
         }, 1500)
     }

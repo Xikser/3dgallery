@@ -186,7 +186,8 @@ const disableCirclePreview = (slider) => {
     const socialMediaContent = slider.querySelector(':scope .socialmedia-content')
     const socialMediaBox = socialMediaContent.querySelectorAll(':scope .socialmedia-box')
 
-    setSocialMediaContentStyle(slider, socialMediaContent, socialMediaBox)
+    if (socialMediaContent.classList.contains('socialmedia--visible'))
+        setSocialMediaContentStyle(slider, socialMediaContent, socialMediaBox)
 }
 
 const clearSliderStyle = (slider) => {
