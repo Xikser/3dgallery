@@ -8,9 +8,17 @@ const hideSlider = 'hide-slider'
 const arrowUp = document.querySelector('.arrow--up')
 const arrowDown = document.querySelector('.arrow--down')
 
-window.addEventListener('keydown', (e) => {
+window.addEventListener('keydown', setKeyDownEvent)
+
+function setKeyDownEvent(e) {
+    window.removeEventListener('keydown', setKeyDownEvent)
+
+    setTimeout(() => {
+        window.addEventListener('keydown', setKeyDownEvent)
+    }, 500)
+
     changeCurrentSlider(e)
-})
+}
 
 document.querySelectorAll('.arrow').forEach(arrow => arrow.addEventListener('click', () => {
     changeCurrentSlider(arrow)
