@@ -28,13 +28,13 @@ const setSocialMediaContentStyle = (slider, socialMediaContent, socialMediaBox) 
     if (!socialMediaContent.classList.contains('socialmedia--visible')) {
         socialMediaContent.classList.add('socialmedia--visible')
         circleIsVisible = true
-        moveControlMap(circleIsVisible)
+        // moveControlMap(circleIsVisible)
         showBoxes(slider, socialMediaBox)
     } else {
         hideBoxes(socialMediaBox)
 
         setTimeout(() => {
-            moveControlMap(circleIsVisible)
+            // moveControlMap(circleIsVisible)
         }, 500)
 
         setTimeout(() => {
