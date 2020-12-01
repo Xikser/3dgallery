@@ -77,24 +77,6 @@ ol, ul, li {
   height: 100%;
 }
 
-.container .travel {
-  position: fixed;
-}
-
-.container .travel::before {
-  position: fixed;
-  width: 35%;
-  height: 450%;
-  content: '';
-  bottom: -190%;
-  left: 0;
-  margin-left: 32.5%;
-  background: rgba(0, 0, 0, 0.5);
-  transform: perspective(400px) rotateX(70deg) translateY(-32%);
-  z-index: -5;
-  transition: all .5s ease;
-}
-
 .container .gallery-container {
   position: absolute;
   width: 100%;
