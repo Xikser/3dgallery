@@ -3,21 +3,21 @@ $arrow-size: 30px
 .control-map
     position: relative
     width: 100px
-    height: 30px
+    height: 70px
     top: calc(100% - 30px)
-    left: calc(100% - 100px)
+    left: calc(100% - 50px)
     display: flex
-    flex-direction: row
+    flex-direction: column
     align-items: center
     transition: all .5s ease
     justify-content: space-evenly
     transform: translate(-50%, -70%)
 
-    .arrow, .square
+    .arrow
         position: relative
         width: $arrow-size
         height: $arrow-size
-        color: #b4b4b4
+        color: #d8d8d8
         background: transparent
         cursor: pointer
 
@@ -48,7 +48,7 @@ $arrow-size: 30px
 
             &:hover .tooltip
                 visibility: visible
-                left: 130%
+                left: -150%
                 top: 5px
 
         &--down
