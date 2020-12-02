@@ -71,6 +71,16 @@ ol, ul, li {
   z-index: -50;
 }
 
+.container .noise--effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("http://api.thumbr.it/whitenoise-861x370.png?background=4c1459ff&noise=e0cee0&density=20&opacity=30 ");
+  opacity: .5;
+}
+
 .container .scene {
   position: relative;
   width: 100%;
@@ -207,7 +217,7 @@ ol, ul, li {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: #d1d1d1;
+  background: deeppink;
   z-index: -1;
   transition: all .3s ease;
 }
@@ -223,15 +233,7 @@ ol, ul, li {
 }
 
 .container .slider .image-box:hover {
-  padding: 10px;
-}
-
-.container .slider .image-box:hover::before {
-  background: rgba(43, 41, 41, 0.4);
-  width: 105%;
-  height: 105%;
-  top: -2.5%;
-  left: -2.5%;
+  padding: 15px;
 }
 
 .container .slider .content-box {
@@ -248,23 +250,26 @@ ol, ul, li {
   z-index: -1;
   transition: all .3s ease-out;
   perspective: 500px;
-  background: rgba(0, 0, 0, 0.6);
+  background: deeppink;
+  box-shadow: 0px 0px 25px deeppink;
 }
 
 .container .slider .content-box h1 {
   cursor: default;
   font-size: clamp(1rem, 1.3rem, 2.2rem);
+  user-select: none;
 }
 
 .container .slider .content-box p {
   cursor: default;
+  user-select: none;
 }
 
 .container .circle {
   position: relative;
   width: 60px;
   height: 60px;
-  background: #8a2be2;
+  background: deeppink;
   bottom: -90px;
   border-radius: 50%;
   display: flex;
@@ -273,7 +278,7 @@ ol, ul, li {
   transition: all .3s ease;
   cursor: pointer;
   perspective: 500px;
-  z-index: 2;
+  z-index: 50;
 }
 
 .container .circle::before {
@@ -281,7 +286,7 @@ ol, ul, li {
   content: '';
   width: 75px;
   height: 75px;
-  background: #8a2be2;
+  background: deeppink;
   border-radius: 50%;
   opacity: .3;
   z-index: -1;
@@ -294,7 +299,7 @@ ol, ul, li {
   width: 85px;
   height: 85px;
   background: transparent;
-  border: 2px solid #8a2be2;
+  border: 2px solid deeppink;
   border-radius: 50%;
   opacity: .6;
   z-index: -1;
@@ -370,7 +375,7 @@ ol, ul, li {
   position: absolute;
   width: 40px;
   height: 40px;
-  background: #8a2be2;
+  background: deeppink;
   transition: all .5s ease;
   z-index: -50;
   left: 50%;
@@ -383,7 +388,7 @@ ol, ul, li {
   content: '';
   width: 55px;
   height: 55px;
-  background: #8a2be2;
+  background: deeppink;
   border-radius: 50%;
   opacity: .3;
   z-index: -1;
@@ -396,7 +401,7 @@ ol, ul, li {
   width: 65px;
   height: 65px;
   background: transparent;
-  border: 2px solid #8a2be2;
+  border: 2px solid deeppink;
   border-radius: 50%;
   opacity: .6;
   z-index: -1;
