@@ -1,8 +1,10 @@
+// #8a2be2
+
 .circle
     position: relative
     width: 60px
     height: 60px
-    background: #8a2be2
+    background: $accent-color
     bottom: -90px
     border-radius: 50%
     display: flex
@@ -11,14 +13,14 @@
     transition: all .3s ease
     cursor: pointer
     perspective: 500px
-    z-index: 2
+    z-index: 50
 
     &::before
         position: absolute
         content: ''
         width: 75px
         height: 75px
-        background: #8a2be2
+        background: $accent-color
         border-radius: 50%
         opacity: .3
         z-index: -1
@@ -30,7 +32,7 @@
         width: 85px
         height: 85px
         background: transparent
-        border: 2px solid #8a2be2
+        border: 2px solid $accent-color
         border-radius: 50%
         opacity: .6
         z-index: -1
