@@ -47,15 +47,15 @@ const setSocialMediaContentStyle = (slider, socialMediaContent, socialMediaBox) 
 const showBoxes = (slider, box) => {
     if (slider.classList.contains('slider--left')) {
         setTimeout(() => {
-            box[0].style.left = '-150px'
-            box[1].style.left = '-50px'
-            box[2].style.left = '45px'
-        }, 200)
-    } else if (slider.classList.contains('slider--right')) {
-        setTimeout(() => {
             box[0].style.left = '445px'
             box[1].style.left = '350px'
             box[2].style.left = '250px'
+        }, 200)
+    } else if (slider.classList.contains('slider--right')) {
+        setTimeout(() => {
+            box[0].style.left = '-150px'
+            box[1].style.left = '-50px'
+            box[2].style.left = '45px'
         }, 200)
     } else {
         setTimeout(() => {
